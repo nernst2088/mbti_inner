@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>MBTI Personality Test</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="stylesheet" href="css/result.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Bar -->
+    <div class="top-bar">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <div class="lang-selector">
+        <label for="langSelect" id="langLabel">Language:</label>
+        <select id="langSelect">
+          <option value="zh">简体中文</option>
+          <option value="zht">繁體中文</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+      <header class="home-header">
+        <h1 class="text-title" id="appTitle">MBTI Personality Test</h1>
+        <p class="text-subtitle" id="appSubtitle">Explore your personality code, discover the unknown you</p>
+      </header>
+
+      <div class="glass-card info-card">
+        <h2 class="text-subtitle" id="infoTitle">Four Dimensions · Sixteen Personalities</h2>
+        <div class="dimension-list">
+          <div class="dimension-item">
+            <div class="dimension-header">
+              <span class="dimension-label">E</span>
+              <span class="dimension-vs">vs</span>
+              <span class="dimension-label">I</span>
+            </div>
+            <p class="dimension-desc text-body" id="dim1Desc"></p>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-header">
+              <span class="dimension-label">S</span>
+              <span class="dimension-vs">vs</span>
+              <span class="dimension-label">N</span>
+            </div>
+            <p class="dimension-desc text-body" id="dim2Desc"></p>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-header">
+              <span class="dimension-label">T</span>
+              <span class="dimension-vs">vs</span>
+              <span class="dimension-label">F</span>
+            </div>
+            <p class="dimension-desc text-body" id="dim3Desc"></p>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-header">
+              <span class="dimension-label">J</span>
+              <span class="dimension-vs">vs</span>
+              <span class="dimension-label">P</span>
+            </div>
+            <p class="dimension-desc text-body" id="dim4Desc"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gender-selector glass-card">
+        <div class="gender-label">选择性别 / Gender</div>
+        <div class="gender-buttons">
+          <button class="gender-btn gender-active" data-gender="male" id="genderMale">♂ 男</button>
+          <button class="gender-btn" data-gender="female" id="genderFemale">♀ 女</button>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-full" id="startBtn">Start Test</button>
+
+      <footer class="home-footer">
+        <p class="text-caption" id="footerText"></p>
+      </footer>
+    </div>
+
+    <!-- Quiz Page -->
+    <div id="quizPage" class="page">
+      <div class="quiz-header">
+        <div class="progress-info">
+          <span class="text-caption" id="progressText"></span>
+          <span class="badge badge-accent" id="currentDimension"></span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="question-card glass-card">
+        <p class="question-text text-subtitle" id="questionText"></p>
+        <div class="options">
+          <button class="option-btn" id="optionA">
+            <span class="option-icon"><span class="option-icon-inner"></span></span>
+            <span id="optionAText"></span>
+          </button>
+          <button class="option-btn" id="optionB">
+            <span class="option-icon"><span class="option-icon-inner"></span></span>
+            <span id="optionBText"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" id="prevBtn" disabled></button>
+        <button class="btn btn-ghost" id="retakeBtn"></button>
+      </div>
+    </div>
+
+    <!-- Result Page -->
+    <div id="resultPage" class="page">
+      <div class="result-header">
+        <div class="result-type text-hero" id="resultType"></div>
+        <div class="result-name text-title" id="resultName"></div>
+        <div class="result-nickname badge badge-accent" id="resultNickname"></div>
+        <div class="character-image-container">
+          <img id="characterImage" class="character-image" src="" alt="" />
+          <div class="image-credit text-caption" id="imageCredit"></div>
+        </div>
+      </div>
+
+      <div class="glass-card result-section">
+        <h3 class="text-subtitle" id="dimensionAnalysisTitle"></h3>
+        <div id="dimensionBars"></div>
+      </div>
+
+      <div class="glass-card result-section">
+        <h3 class="text-subtitle" id="personalityInterpretationTitle"></h3>
+        <p class="desc-text text-body" id="description"></p>
+        
+        <h4 class="section-title text-subtitle" id="coreTraitsTitle"></h4>
+        <div class="traits" id="traits"></div>
+        
+        <h4 class="section-title text-subtitle" id="strengthsTitle"></h4>
+        <div id="strengths"></div>
+        
+        <h4 class="section-title text-subtitle" id="weaknessesTitle"></h4>
+        <div id="weaknesses"></div>
+        
+        <h4 class="section-title text-subtitle" id="careerTitle"></h4>
+        <div id="career"></div>
+        
+        <h4 class="section-title text-subtitle" id="relationshipsTitle"></h4>
+        <div id="relationships"></div>
+        
+        <h4 class="section-title text-subtitle" id="developmentTitle"></h4>
+        <div id="development"></div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn btn-primary btn-full" id="retakeResultBtn"></button>
+      </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="aboutPage" class="page">
+      <div class="glass-card about-section">
+        <h2 class="text-subtitle" id="aboutWhatTitle"></h2>
+        <p class="desc-text text-body" id="aboutDesc1"></p>
+        <p class="desc-text text-body" id="aboutDesc2"></p>
+        <div class="about-dimensions" id="aboutDimensions"></div>
+      </div>
+
+      <div class="glass-card about-section">
+        <h2 class="text-subtitle" id="aboutTypesTitle"></h2>
+        <div class="types-grid" id="typesGrid"></div>
+      </div>
+
+      <button class="btn btn-primary btn-full" id="aboutStartBtn"></button>
+
+      <footer class="home-footer">
+        <p class="text-caption" id="aboutFooter1"></p>
+        <p class="text-caption" id="aboutFooter2" style="margin-top: 4px;"></p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JS Modules -->
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/pages.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
