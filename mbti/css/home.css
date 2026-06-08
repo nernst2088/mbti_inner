@@ -1,0 +1,150 @@
+/* ===== Home Page ===== */
+.home-header {
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  text-align: center;
+}
+
+.home-logo {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+  box-shadow: 0 8px 24px rgba(0, 122, 255, 0.3);
+}
+
+.logo-text {
+  font-size: 36px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+#appTitle {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+#appSubtitle {
+  color: var(--color-text-secondary);
+}
+
+/* Info Card */
+.info-card {
+  margin: var(--spacing-xl) 0;
+}
+
+#infoTitle {
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.dimension-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.dimension-item {
+  padding: var(--spacing-md);
+  background: var(--color-surface-secondary);
+  border-radius: var(--radius-md);
+}
+
+.dimension-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.dimension-label {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-right: var(--spacing-sm);
+}
+
+.dimension-vs {
+  font-size: 13px;
+  color: var(--color-text-tertiary);
+  margin: 0 var(--spacing-xs);
+}
+
+.dimension-desc {
+  margin: 0;
+}
+
+/* Home Footer */
+.home-footer {
+  padding: var(--spacing-xl) 0 var(--spacing-2xl);
+  text-align: center;
+}
+
+/* Gender Selector */
+.gender-selector {
+  margin: var(--spacing-lg) 0;
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.gender-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.gender-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.gender-btn {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.gender-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.gender-active {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+#startBtn {
+  margin: var(--spacing-xl) 0 var(--spacing-lg);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .home-header {
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  }
+  
+  .home-logo {
+    width: 76px;
+    height: 76px;
+  }
+  
+  .logo-text {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,131 @@
+/* ===== Quiz Page ===== */
+.quiz-header {
+  padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+#progressText {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+#currentDimension {
+  font-weight: 600;
+}
+
+.question-card {
+  margin: var(--spacing-lg) 0;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.question-text {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.option-btn {
+  width: 100%;
+  min-height: 76px;
+  background: var(--color-surface-solid);
+  border: 1.5px solid var(--color-separator);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+.option-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.option-btn:active {
+  transform: scale(0.98);
+}
+
+.option-btn.selected {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent);
+}
+
+.option-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-md);
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.option-btn.selected .option-icon {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.option-icon-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.option-btn.selected .option-icon-inner {
+  background: #FFFFFF;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--spacing-xl) 0 var(--spacing-2xl);
+  gap: var(--spacing-md);
+}
+
+.nav-buttons .btn {
+  flex: 1;
+}
+
+#retakeBtn {
+  flex: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .question-card {
+    min-height: 240px;
+    padding: var(--spacing-lg);
+  }
+
+  .option-btn {
+    min-height: 68px;
+    font-size: 16px;
+  }
+}
